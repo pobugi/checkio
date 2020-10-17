@@ -1,0 +1,8 @@
+[MASTER]
+[MESSAGES CONTROL]
+disable=
+    C0111,
+    C0301,
+    W0611,
+    W0622,
+    E712
