@@ -10,8 +10,8 @@ def yaml(a):
     for item in lst:
         if item:
             item = item.split(':')
-            key = item[0].strip().rstrip()
-            value = item[1].strip().rstrip()
+            key = item[0].strip()
+            value = item[1].strip()
             if value.isdigit():
                 value = int(value)
             d.update({key: value})
