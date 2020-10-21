@@ -37,7 +37,6 @@ def checkio(line: str) -> int:
     for word in words:
         if condition(word) and stripe(word):
             count += 1
-            print(word)
     return count
 
 
