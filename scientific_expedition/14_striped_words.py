@@ -13,8 +13,42 @@ The words consisting of a single letter are not striped -- don't count those.
 Casing is not significant for this mission."""
 
 import re
-def checkio(line: str) -> str:
 
-    return re.split(',|\s|;', line)
 
-print(checkio('My name, is. ivan; drago'))
+def checkio(line: str) -> int:
+    vowels = 'AEIOUY'.lower()
+    consonants = 'BCDFGHJKLMNPQRSTVWXZ'.lower()
+
+    def condition(s):
+        return len(s) > 1
+
+    def stripe(s):
+        s = s.lower()
+        for i in range(1, len(s)):
+            if (s[i] in consonants and s[i - 1] in vowels) or \
+                    (s[i] in vowels and s[i - 1] in consonants):
+                continue
+            else:
+                return False
+        return True
+
+    words = re.split('[.,;? ]', line)
+    count = 0
+    for word in words:
+        if condition(word) and stripe(word):
+            count += 1
+            print(word)
+    return count
+
+
+if __name__ == '__main__':
+    print("Example:")
+    print(checkio('My name is ...'))
+
+    assert checkio('My name is ...') == 3
+    assert checkio('Hello world') == 0
+    assert checkio('A quantity of striped words.') == 1
+    assert checkio('Dog,cat,mouse,bird.Human.') == 3
+    print("Coding complete? Click 'Check' to earn cool rewards!")
+
+
