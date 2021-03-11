@@ -7,14 +7,14 @@ from typing import Iterable
 
 
 def except_zero(items: list) -> Iterable:
-    zero_indexes = []
+    zero_indices = []
     zero_qty = items.count(0)
     for i in range(len(items)):
         if not items[i]:
-            zero_indexes.append(i)
+            zero_indices.append(i)
     items.sort()
     items = items[zero_qty:]
-    for index in zero_indexes:
+    for index in zero_indices:
         items.insert(index, 0)
     return items
 
