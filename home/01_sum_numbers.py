@@ -4,6 +4,10 @@ The text consists from numbers, spaces and english letters
 """
 
 def sum_numbers(text: str) -> int:
+    """
+    :param text: text to be processed
+    :return: sum of numbers in the text
+    """
     res = 0
     l = text.split()
     for item in l:
