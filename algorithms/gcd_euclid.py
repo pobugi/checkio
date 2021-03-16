@@ -7,6 +7,11 @@
 """
 
 def gcd(a, b):
+    assert a >= 0 and b >= 0
+    if a == 0:
+        return b
+    if b == 0:
+        return a
     while a != 0 and b != 0:
         if a > b:
             a = a % b
@@ -16,4 +21,22 @@ def gcd(a, b):
             return a
     return a + b
 
-print(gcd(45, 18))
+print(gcd(-48, 18))
+
+
+"""recursive ver"""
+
+def euclid_GCD(a, b):
+    assert a >= 0 and b >= 0
+    if a == 0:
+        return b
+    if b == 0:
+        return a
+    if a > b:
+        a = a % b
+        return euclid_GCD(a, b)
+    else:
+        b = b % a
+        return euclid_GCD(a, b)
+
+print(euclid_GCD(-1, 66))
